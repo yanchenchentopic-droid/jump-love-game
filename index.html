@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GY 和 CYC 的跳一跳</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section class="start-screen" id="startScreen" aria-label="开始页">
+      <div class="start-panel">
+        <p class="eyebrow">GY × CYC</p>
+        <h2>从 2021.12.14 开始</h2>
+        <p>一格，是我们一起走过的 5 天。</p>
+        <p class="start-note">慢慢跳，慢慢把重要的日子都亮起来。</p>
+        <button id="startButton" type="button">开始我们的跳一跳</button>
+      </div>
+    </section>
+
+    <main class="game-shell">
+      <section class="topbar" aria-label="游戏状态">
+        <div>
+          <p class="eyebrow">GY × CYC</p>
+          <h1>我们的跳一跳</h1>
+        </div>
+        <div class="stats">
+          <span><strong id="daysTogether">0</strong> 天</span>
+          <span><strong id="steps">0</strong> 格</span>
+          <span>默契 <strong id="bondScore">0</strong></span>
+          <span>机会 <strong id="livesLeft">3</strong>/<strong id="maxLives">3</strong></span>
+          <span id="currentDate">2021.12.14</span>
+        </div>
+      </section>
+
+      <section class="play-area" aria-label="跳一跳游戏">
+        <canvas id="gameCanvas" width="960" height="640"></canvas>
+        <div class="charge-meter" aria-hidden="true">
+          <div id="chargeFill"></div>
+        </div>
+        <div class="hint" id="hint">长按空格或按住画面蓄力，松开起跳</div>
+      </section>
+
+      <section class="controls" aria-label="游戏控制">
+        <button id="jumpButton" type="button">按住蓄力</button>
+        <button id="resetButton" type="button">重新开始</button>
+        <div class="next-memory" id="nextMemory">下一段回忆正在路上</div>
+      </section>
+    </main>
+
+    <dialog id="memoryDialog">
+      <div class="memory-card">
+        <p class="memory-tag" id="memoryTag">重要日子</p>
+        <figure class="memory-photo" id="memoryPhotoWrap">
+          <img id="memoryPhoto" alt="" />
+          <figcaption id="memoryPhotoCaption">照片待加入</figcaption>
+        </figure>
+        <h2 id="memoryTitle">回忆标题</h2>
+        <p id="memoryText">这里会显示你们的重要回忆。</p>
+        <button id="closeMemory" type="button">继续跳</button>
+      </div>
+    </dialog>
+
+    <dialog id="gameOverDialog">
+      <div class="memory-card">
+        <p class="memory-tag">这次先跳到这里</p>
+        <h2>机会用完啦</h2>
+        <p id="gameOverText">已经一起走过很多格了。</p>
+        <button id="restartFromOver" type="button">再跳一次</button>
+      </div>
+    </dialog>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
